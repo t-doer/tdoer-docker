@@ -1,0 +1,6 @@
+# Ignored files or directories
+build.sh
+README.MD
+README.md
+conf.d
+html

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- The contents of this file will be loaded for each web application -->
+<Context>
+
+    <!-- Default set of monitored resources. If one of these changes, the    -->
+    <!-- web application will be reloaded.                                   -->
+    <WatchedResource>WEB-INF/web.xml</WatchedResource>
+    <WatchedResource>${catalina.base}/conf/web.xml</WatchedResource>
+
+    <!-- Uncomment this to disable session persistence across Tomcat restarts -->
+    <!--
+        <Manager pathname="" />
+    -->
+    <Resource name="boms" auth="Container"
+        factory="com.zaxxer.hikari.HikariJNDIFactory"
+        type="javax.sql.DataSource"
+        minimumIdle="5"
+        maximumPoolSize="10"
+        connectionTimeout="300000"
+        dataSourceClassName="${jdbc.dataSourceClass}"
+        dataSource.user="${jdbc.user}"
+        dataSource.password="${jdbc.password}"
+        dataSource.url="${jdbc.url}"/>
+    <Resource name="boms2" auth="Container"
+        factory="com.zaxxer.hikari.HikariJNDIFactory"
+        type="javax.sql.DataSource"
+        minimumIdle="5"
+        maximumPoolSize="10"
+        connectionTimeout="300000"
+        dataSourceClassName="${newJdbc.dataSourceClass}"
+        dataSource.user="${newJdbc.user}"
+        dataSource.password="${newJdbc.password}"
+        dataSource.url="${newJdbc.url}"/>
+</Context>
